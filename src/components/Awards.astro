@@ -1,0 +1,174 @@
+---
+const awards = [
+  {
+    title: "Architecture Design Competition",
+    org: "Competition Entry",
+    year: "2024",
+    description: "Competition entry for an innovative public space design exploring adaptive reuse and community engagement.",
+    type: "Competition",
+  },
+  {
+    title: "Computational Portfolio",
+    org: "Academic Achievement",
+    year: "2024",
+    description: "Developed a computational design portfolio showcasing parametric and algorithmic approaches to architectural form-finding.",
+    type: "Academic",
+  },
+  {
+    title: "Heritage Mapping Research",
+    org: "Urban Design Research",
+    year: "2024",
+    description: "Group research project on heritage mapping and documentation, contributing to urban planning discourse in West Africa.",
+    type: "Research",
+  },
+];
+
+const publications = [
+  {
+    title: "Dissertation — Architectural Research",
+    year: "2024",
+    description: "In-progress dissertation exploring contemporary themes in architecture and urban environments.",
+    type: "Thesis",
+  },
+];
+---
+
+<section id="awards">
+  <div class="container">
+    <div class="awards-layout">
+      <div>
+        <p class="section-label">Recognition</p>
+        <h2 class="section-title">Awards &<br/>Competitions</h2>
+        <div class="awards-list">
+          {awards.map(award => (
+            <div class="award-item">
+              <div class="award-left">
+                <span class="award-year">{award.year}</span>
+                <span class="award-type">{award.type}</span>
+              </div>
+              <div class="award-right">
+                <h3 class="award-title">{award.title}</h3>
+                <p class="award-org">{award.org}</p>
+                <p class="award-desc">{award.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div>
+        <p class="section-label">Research</p>
+        <h2 class="section-title" style="font-size: 2rem;">Publications &<br/>Research</h2>
+        <div class="awards-list">
+          {publications.map(pub => (
+            <div class="award-item">
+              <div class="award-left">
+                <span class="award-year">{pub.year}</span>
+                <span class="award-type">{pub.type}</span>
+              </div>
+              <div class="award-right">
+                <h3 class="award-title">{pub.title}</h3>
+                <p class="award-desc">{pub.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="certifications">
+          <p class="section-label" style="margin-top: 48px;">Certifications</p>
+          <ul class="cert-list">
+            <li>OA ArchViz Academy — Architectural Visualization</li>
+            <li>Autodesk Revit — BIM Professional Training</li>
+            <li>D5 Render — Advanced Visualization</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #awards { }
+
+  .awards-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
+
+  .awards-list { display: flex; flex-direction: column; gap: 0; }
+
+  .award-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .award-item:first-child { border-top: 1px solid var(--light-gray); }
+
+  .award-left {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 2px;
+  }
+
+  .award-year {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--black);
+  }
+
+  .award-type {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .award-title {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+
+  .award-org {
+    font-size: 12px;
+    color: var(--mid-gray);
+    margin-bottom: 8px;
+  }
+
+  .award-desc {
+    font-size: 13px;
+    color: var(--dark-gray);
+    line-height: 1.6;
+  }
+
+  .cert-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .cert-list li {
+    font-size: 13px;
+    color: var(--dark-gray);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .cert-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  @media (max-width: 768px) {
+    .awards-layout { grid-template-columns: 1fr; gap: 60px; }
+  }
+</style>

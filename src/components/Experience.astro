@@ -1,0 +1,169 @@
+---
+const experiences = [
+  {
+    role: "Architectural Visualizer (Freelance)",
+    company: "Self-Employed / Upwork",
+    period: "2022 — Present",
+    type: "Freelance",
+    description: "Delivering high-quality 3D architectural visualizations for residential, commercial, and hospitality clients. Services include exterior and interior rendering, walkthroughs, and design consultation.",
+    highlights: ["D5 Render, 3ds Max, Lumion", "Client-facing project management", "Photorealistic exterior & interior renders"],
+  },
+  {
+    role: "Architecture Intern",
+    company: "Architecture Firm",
+    period: "2023",
+    type: "Internship",
+    description: "Contributed to live architectural projects including design development, technical drawing production, and site documentation under senior architects.",
+    highlights: ["Revit BIM modeling", "AutoCAD technical drawings", "Site survey & documentation"],
+  },
+  {
+    role: "OA ArchViz Academy",
+    company: "Professional Training",
+    period: "2022 — 2023",
+    type: "Training",
+    description: "Completed intensive architectural visualization training covering D5 Render workflows, lighting theory, material creation, and photorealistic output.",
+    highlights: ["Advanced rendering techniques", "D5 Render pipeline", "Real-time visualization"],
+  },
+];
+---
+
+<section id="experience">
+  <div class="container">
+    <p class="section-label">Career</p>
+    <h2 class="section-title">Experience</h2>
+    <div class="timeline">
+      {experiences.map((exp, i) => (
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="dot"></div>
+            {i < experiences.length - 1 && <div class="line"></div>}
+          </div>
+          <div class="timeline-content">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">{exp.role}</h3>
+                <p class="exp-company">{exp.company}</p>
+              </div>
+              <div class="exp-right">
+                <span class="exp-period">{exp.period}</span>
+                <span class="exp-type">{exp.type}</span>
+              </div>
+            </div>
+            <p class="exp-desc">{exp.description}</p>
+            <ul class="exp-highlights">
+              {exp.highlights.map(h => <li>{h}</li>)}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 24px;
+    padding-bottom: 60px;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    background: var(--white);
+    flex-shrink: 0;
+  }
+
+  .line {
+    width: 1px;
+    flex: 1;
+    background: var(--light-gray);
+    margin-top: 8px;
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-role {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+
+  .exp-company {
+    font-size: 13px;
+    color: var(--mid-gray);
+  }
+
+  .exp-right {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: flex-end;
+  }
+
+  .exp-period {
+    font-size: 13px;
+    color: var(--dark-gray);
+  }
+
+  .exp-type {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border: 1px solid var(--light-gray);
+    color: var(--mid-gray);
+  }
+
+  .exp-desc {
+    font-size: 14px;
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+  }
+
+  .exp-highlights {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exp-highlights li {
+    font-size: 11px;
+    color: var(--dark-gray);
+    padding: 4px 12px;
+    background: var(--off-white);
+    border: 1px solid var(--light-gray);
+  }
+
+  @media (max-width: 600px) {
+    .exp-header { flex-direction: column; }
+    .exp-right { align-items: flex-start; text-align: left; }
+  }
+</style>

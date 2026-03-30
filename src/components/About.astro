@@ -1,0 +1,130 @@
+---
+---
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">
+        <div class="photo-placeholder">
+          <span>Photo</span>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number">5+</span>
+            <span class="stat-label">Years of Study</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Projects Completed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Competitions Entered</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-content">
+        <p class="section-label">About Me</p>
+        <h2 class="section-title">Architecture is the<br/><em>art of possibility.</em></h2>
+        <p>
+          I'm Opey Theophilus, an architecture student passionate about creating spaces that are functional, meaningful, and visually compelling. My work spans architectural design, high-fidelity 3D visualization, and computational design methods.
+        </p>
+        <p>
+          I approach each project with an investigative mindset — researching site, culture, and context before a single line is drawn. Whether I'm developing a residential concept or producing photorealistic renders, I aim to communicate ideas clearly and beautifully.
+        </p>
+        <p>
+          Beyond design, I'm deeply interested in the intersection of architecture and technology — exploring tools like Grasshopper, AI-assisted visualization, and parametric modeling to push the boundaries of what's possible.
+        </p>
+        <div class="about-links">
+          <a href="#projects" class="link-arrow">View Projects <span>→</span></a>
+          <a href="/cv.pdf" download class="link-arrow">Download CV <span>→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #about { background: var(--off-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mid-gray);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+  }
+
+  .about-content p {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .about-content .section-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .about-links {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+  }
+
+  .link-arrow {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+
+  .link-arrow span { transition: transform 0.2s; display: inline-block; }
+  .link-arrow:hover span { transform: translateX(4px); }
+
+  @media (max-width: 768px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); }
+  }
+</style>

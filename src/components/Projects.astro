@@ -1,0 +1,270 @@
+---
+const projects = [
+  {
+    id: 1,
+    title: "Residential Visualization",
+    category: "Architectural Visualization",
+    year: "2024",
+    image: "/images/rendering-1.jpg",
+    description: "High-fidelity interior and exterior rendering for a modern residential project.",
+    tags: ["D5 Render", "3ds Max", "Photoshop"],
+    featured: true,
+  },
+  {
+    id: 2,
+    title: "Apartment Complex",
+    category: "Architectural Design",
+    year: "2024",
+    image: "/images/rendering-2.jpg",
+    description: "Multi-unit residential design with emphasis on natural light and shared community spaces.",
+    tags: ["Revit", "AutoCAD", "SketchUp"],
+    featured: true,
+  },
+  {
+    id: 3,
+    title: "Interior Concept — Kitchen",
+    category: "Interior Design",
+    year: "2023",
+    image: "/images/rendering-3.jpg",
+    description: "Contemporary kitchen design exploring material warmth and functional elegance.",
+    tags: ["D5 Render", "3ds Max"],
+    featured: false,
+  },
+  {
+    id: 4,
+    title: "Hospitality — Hotel Lobby",
+    category: "Hospitality Design",
+    year: "2023",
+    image: "/images/rendering-4.jpg",
+    description: "Luxury hotel lobby concept blending local craft with modern spatial sensibility.",
+    tags: ["Lumion", "Revit", "AutoCAD"],
+    featured: false,
+  },
+  {
+    id: 5,
+    title: "Piggery — Small Scale Agricultural",
+    category: "Rural Architecture",
+    year: "2023",
+    image: "/images/rendering-5.jpg",
+    description: "Sustainable small-scale agricultural facility designed for climate responsiveness.",
+    tags: ["SketchUp", "AutoCAD"],
+    featured: false,
+  },
+  {
+    id: 6,
+    title: "Urban Neighbourhood Study",
+    category: "Urban Design",
+    year: "2024",
+    image: "/images/rendering-6.jpg",
+    description: "Research-led neighbourhood planning study examining density, connectivity, and heritage.",
+    tags: ["AutoCAD", "Photoshop", "GIS"],
+    featured: true,
+  },
+];
+
+const categories = ["All", ...new Set(projects.map(p => p.category))];
+---
+
+<section id="projects">
+  <div class="container">
+    <p class="section-label">Selected Work</p>
+    <h2 class="section-title">Projects</h2>
+
+    <div class="filter-bar">
+      {categories.map((cat, i) => (
+        <button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat}>
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="projects-grid" id="projects-grid">
+      {projects.map((project) => (
+        <article class="project-card" data-category={project.category}>
+          <div class="project-image">
+            <div class="img-placeholder">
+              <span>{project.title}</span>
+            </div>
+            <div class="project-overlay">
+              <div class="overlay-tags">
+                {project.tags.map(tag => <span class="tag">{tag}</span>)}
+              </div>
+            </div>
+          </div>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-category">{project.category}</span>
+              <span class="project-year">{project.year}</span>
+            </div>
+            <h3 class="project-title">{project.title}</h3>
+            <p class="project-desc">{project.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: none;
+    border: 1px solid var(--light-gray);
+    color: var(--mid-gray);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-sans);
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 32px;
+  }
+
+  .project-card { cursor: pointer; }
+
+  .project-card:nth-child(4n+1):not(:nth-child(3n+1)) {
+    grid-column: span 1;
+  }
+
+  .project-card[data-category]:first-child,
+  .project-card:nth-child(4) {
+    grid-column: span 2;
+  }
+
+  .project-image {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .project-card:first-child .project-image,
+  .project-card:nth-child(4) .project-image {
+    aspect-ratio: 16/9;
+  }
+
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 16px;
+    color: var(--mid-gray);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover .img-placeholder { transform: scale(1.03); }
+
+  .project-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(26,25,23,0.6);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+
+  .project-card:hover .project-overlay { opacity: 1; }
+
+  .overlay-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .project-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .project-category {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .project-year {
+    font-size: 11px;
+    color: var(--mid-gray);
+  }
+
+  .project-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: var(--black);
+  }
+
+  .project-desc {
+    font-size: 13px;
+    color: var(--dark-gray);
+    line-height: 1.6;
+  }
+
+  .project-card.hidden { display: none; }
+
+  @media (max-width: 900px) {
+    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .project-card:first-child,
+    .project-card:nth-child(4) { grid-column: span 2; }
+  }
+
+  @media (max-width: 600px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .project-card:first-child,
+    .project-card:nth-child(4) { grid-column: span 1; }
+  }
+</style>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        const match = filter === 'All' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+      });
+    });
+  });
+</script>

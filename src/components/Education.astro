@@ -1,0 +1,132 @@
+---
+const education = [
+  {
+    degree: "Bachelor of Architecture (B.Arch)",
+    school: "Kwame Nkrumah University of Science and Technology (KNUST)",
+    period: "2019 — Present",
+    location: "Kumasi, Ghana",
+    description: "Five-year professional architecture program covering design theory, history, structures, environmental systems, urban design, and professional practice.",
+    courses: ["Architectural Design Studio", "Urban Design", "Structures & Technology", "Environmental Systems", "History & Theory of Architecture", "Professional Practice"],
+  },
+  {
+    degree: "UCL — Research Affiliation",
+    school: "University College London",
+    period: "2024",
+    location: "London, UK",
+    description: "Research engagement with UCL's architecture and urban planning faculty, focusing on neighbourhood planning and heritage-led regeneration.",
+    courses: ["Neighbourhood Planning", "Heritage Mapping", "Urban Regeneration"],
+  },
+];
+---
+
+<section id="education">
+  <div class="container">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="edu-grid">
+      {education.map(edu => (
+        <div class="edu-card">
+          <div class="edu-header">
+            <div>
+              <span class="edu-period">{edu.period}</span>
+              <h3 class="edu-degree">{edu.degree}</h3>
+              <p class="edu-school">{edu.school}</p>
+              <p class="edu-location">{edu.location}</p>
+            </div>
+          </div>
+          <p class="edu-desc">{edu.description}</p>
+          <div class="edu-courses">
+            <span class="courses-label">Key Modules</span>
+            <div class="course-tags">
+              {edu.courses.map(course => <span class="course-tag">{course}</span>)}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #education { background: var(--off-white); }
+
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .edu-card {
+    background: var(--white);
+    padding: 40px;
+    border: 1px solid var(--light-gray);
+  }
+
+  .edu-period {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .edu-degree {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .edu-school {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--dark-gray);
+    margin-bottom: 4px;
+  }
+
+  .edu-location {
+    font-size: 12px;
+    color: var(--mid-gray);
+    margin-bottom: 20px;
+  }
+
+  .edu-desc {
+    font-size: 13px;
+    color: var(--dark-gray);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .courses-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .course-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .course-tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    background: var(--off-white);
+    border: 1px solid var(--light-gray);
+    color: var(--dark-gray);
+  }
+
+  @media (max-width: 768px) {
+    .edu-grid { grid-template-columns: 1fr; }
+    .edu-card { padding: 28px; }
+  }
+</style>

@@ -1,0 +1,90 @@
+---
+const steps = [
+  {
+    number: "01",
+    title: "Research & Discovery",
+    description: "Every project begins with deep contextual research — site analysis, climatic data, cultural background, and client aspirations — before any design decisions are made.",
+  },
+  {
+    number: "02",
+    title: "Concept & Ideation",
+    description: "From research emerges concept. I develop multiple design directions through sketching, diagramming, and massing studies, iterating rapidly until the core idea crystallizes.",
+  },
+  {
+    number: "03",
+    title: "Design Development",
+    description: "The concept is developed into a resolved architectural proposal — plans, sections, elevations — with attention to structure, materials, environment, and constructability.",
+  },
+  {
+    number: "04",
+    title: "Visualization & Communication",
+    description: "Designs are brought to life through photorealistic 3D renders, walkthroughs, and clear technical documentation. I believe great architecture deserves exceptional presentation.",
+  },
+];
+---
+
+<section id="process">
+  <div class="container">
+    <p class="section-label">How I Work</p>
+    <h2 class="section-title">Design Process</h2>
+    <div class="process-grid">
+      {steps.map(step => (
+        <div class="process-step">
+          <span class="step-number">{step.number}</span>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-desc">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  #process { background: var(--black); }
+
+  #process .section-label { color: var(--mid-gray); }
+
+  #process .section-title { color: var(--white); }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+
+  .process-step {
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .step-number {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: rgba(255,255,255,0.1);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .step-title {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 900px) {
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 500px) {
+    .process-grid { grid-template-columns: 1fr; }
+  }
+</style>
