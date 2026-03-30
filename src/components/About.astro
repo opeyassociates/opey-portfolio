@@ -4,9 +4,8 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-image">
-        <div class="photo-placeholder">
-          <span>Photo</span>
-        </div>
+        <img src="/images/profile.jpg" alt="Opey Theophilus" class="profile-photo" />
+
         <div class="about-stats">
           <div class="stat">
             <span class="stat-number">5+</span>
@@ -26,13 +25,13 @@
         <p class="section-label">About Me</p>
         <h2 class="section-title">Architecture is the<br/><em>art of possibility.</em></h2>
         <p>
-          I'm Opey Theophilus, an architecture student passionate about creating spaces that are functional, meaningful, and visually compelling. My work spans architectural design, high-fidelity 3D visualization, and computational design methods.
+          I'm Opey Theophilus, a third year architecture student with a strong passion for architectural visualization and computational design.
         </p>
         <p>
-          I approach each project with an investigative mindset — researching site, culture, and context before a single line is drawn. Whether I'm developing a residential concept or producing photorealistic renders, I aim to communicate ideas clearly and beautifully.
+          I enjoy using visuals to communicate design concepts with clarity while exploring computational methods to approach problems with innovation and precision.
         </p>
         <p>
-          Beyond design, I'm deeply interested in the intersection of architecture and technology — exploring tools like Grasshopper, AI-assisted visualization, and parametric modeling to push the boundaries of what's possible.
+          I am eager to bring these skills into a professional environment and contribute meaningfully to design projects.
         </p>
         <div class="about-links">
           <a href="#projects" class="link-arrow">View Projects <span>→</span></a>
@@ -53,17 +52,11 @@
     align-items: start;
   }
 
-  .photo-placeholder {
+  .profile-photo {
     width: 100%;
     aspect-ratio: 3/4;
-    background: var(--light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--mid-gray);
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
+    object-fit: cover;
+    object-position: top;
     margin-bottom: 32px;
   }
 

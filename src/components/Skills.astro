@@ -1,40 +1,38 @@
 ---
 const skillGroups = [
   {
-    category: "Design & Drafting",
+    category: "3D Modeling",
     skills: [
-      { name: "AutoCAD", level: 95 },
-      { name: "Revit (BIM)", level: 85 },
-      { name: "SketchUp", level: 90 },
-      { name: "Rhino 3D", level: 75 },
+      { name: "Revit", level: 88 },
+      { name: "3ds Max", level: 90 },
+      { name: "Rhino 3D", level: 78 },
+      { name: "Rhino Inside", level: 70 },
     ],
   },
   {
-    category: "3D & Visualization",
+    category: "Rendering",
     skills: [
-      { name: "3ds Max", level: 88 },
-      { name: "D5 Render", level: 92 },
-      { name: "Lumion", level: 80 },
-      { name: "Chaos Vantage", level: 75 },
-      { name: "Unreal Engine", level: 65 },
+      { name: "D5 Render", level: 95 },
+      { name: "Corona Renderer", level: 82 },
     ],
   },
   {
-    category: "Post-Production",
+    category: "Design & Post-Production",
     skills: [
+      { name: "CorelDRAW", level: 88 },
       { name: "Adobe Photoshop", level: 90 },
-      { name: "Adobe Illustrator", level: 80 },
-      { name: "CorelDRAW", level: 85 },
-      { name: "Canva", level: 88 },
+      { name: "After Effects", level: 75 },
+      { name: "Adobe Premiere", level: 72 },
+      { name: "Adobe Illustrator", level: 78 },
     ],
   },
   {
     category: "Computational & AI",
     skills: [
-      { name: "Grasshopper", level: 65 },
-      { name: "Dynamo", level: 60 },
-      { name: "AI Visualization", level: 80 },
-      { name: "ComfyUI", level: 70 },
+      { name: "Parametric Design", level: 70 },
+      { name: "AI Visualization", level: 82 },
+      { name: "ComfyUI", level: 72 },
+      { name: "Computational Design", level: 68 },
     ],
   },
 ];
@@ -68,7 +66,7 @@ const skillGroups = [
     <div class="software-logos">
       <p class="section-label" style="margin-bottom: 32px;">Also proficient in</p>
       <div class="logo-row">
-        {["Fusion 360", "Topaz Gigapixel AI", "Artios CAD", "Microsoft Office Suite", "Azure Data Studio"].map(tool => (
+        {["AutoCAD", "SketchUp", "Lumion", "Chaos Vantage", "Canva", "Unreal Engine", "Ghanaian Language", "English Language"].map(tool => (
           <div class="tool-chip">{tool}</div>
         ))}
       </div>

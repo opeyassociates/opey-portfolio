@@ -2,63 +2,83 @@
 const projects = [
   {
     id: 1,
-    title: "Residential Visualization",
-    category: "Architectural Visualization",
-    year: "2024",
-    image: "/images/rendering-1.jpg",
-    description: "High-fidelity interior and exterior rendering for a modern residential project.",
-    tags: ["D5 Render", "3ds Max", "Photoshop"],
+    title: "Come and Relax",
+    category: "Architectural Design",
+    year: "2025",
+    image: "/images/popup-retail.jpg",
+    description: "A pop-up retail stall designed to function as both a commercial space and a relaxation environment, inspired by the biomimetic form of a millipede.",
+    tags: ["3ds Max", "D5 Render", "Rhino"],
     featured: true,
   },
   {
     id: 2,
-    title: "Apartment Complex",
-    category: "Architectural Design",
+    title: "NWL Apartment",
+    category: "Architectural Visualization",
     year: "2024",
-    image: "/images/rendering-2.jpg",
-    description: "Multi-unit residential design with emphasis on natural light and shared community spaces.",
-    tags: ["Revit", "AutoCAD", "SketchUp"],
+    image: "/images/nwl-apartment.jpg",
+    description: "Night-time photorealistic visualization of a contemporary two-storey residential building, showcasing warm lighting and clean modern façade detailing.",
+    tags: ["D5 Render", "3ds Max", "Photoshop"],
     featured: true,
   },
   {
     id: 3,
-    title: "Interior Concept — Kitchen",
-    category: "Interior Design",
-    year: "2023",
-    image: "/images/rendering-3.jpg",
-    description: "Contemporary kitchen design exploring material warmth and functional elegance.",
-    tags: ["D5 Render", "3ds Max"],
+    title: "Francisca's Estate Gate",
+    category: "Architectural Visualization",
+    year: "2024",
+    image: "/images/franciscas-estate.jpg",
+    description: "Atmospheric dusk rendering of a gated estate entrance with warm ambient lighting, stone cladding, and landscape integration.",
+    tags: ["D5 Render", "Photoshop"],
     featured: false,
   },
   {
     id: 4,
-    title: "Hospitality — Hotel Lobby",
-    category: "Hospitality Design",
-    year: "2023",
-    image: "/images/rendering-4.jpg",
-    description: "Luxury hotel lobby concept blending local craft with modern spatial sensibility.",
-    tags: ["Lumion", "Revit", "AutoCAD"],
+    title: "Kitchen Interior",
+    category: "Interior Design",
+    year: "2024",
+    image: "/images/kitchen-interior.jpg",
+    description: "High-end kitchen interior visualization featuring dark matte cabinetry, marble surfaces, and carefully composed natural lighting.",
+    tags: ["D5 Render", "3ds Max", "Corona"],
     featured: false,
   },
   {
     id: 5,
-    title: "Piggery — Small Scale Agricultural",
-    category: "Rural Architecture",
-    year: "2023",
-    image: "/images/rendering-5.jpg",
-    description: "Sustainable small-scale agricultural facility designed for climate responsiveness.",
-    tags: ["SketchUp", "AutoCAD"],
-    featured: false,
+    title: "Kaira Looro — Tere Nursery",
+    category: "Architecture Competition",
+    year: "2025",
+    image: "/images/kaira-looro.jpg",
+    description: "Contextually rooted nursery facility designed for a rural village in Casamance, southern Senegal, where access to resources is limited. Team Lead & Visualiser.",
+    tags: ["Revit", "D5 Render", "AutoCAD"],
+    featured: true,
   },
   {
     id: 6,
-    title: "Urban Neighbourhood Study",
-    category: "Urban Design",
+    title: "Fidelity Residence",
+    category: "Architectural Visualization",
     year: "2024",
-    image: "/images/rendering-6.jpg",
-    description: "Research-led neighbourhood planning study examining density, connectivity, and heritage.",
-    tags: ["AutoCAD", "Photoshop", "GIS"],
-    featured: true,
+    image: "/images/fidelity-house.jpg",
+    description: "Aerial perspective rendering of a single-storey residential compound in Ghana, emphasizing site integration and functional layout.",
+    tags: ["D5 Render", "3ds Max", "Photoshop"],
+    featured: false,
+  },
+  {
+    id: 7,
+    title: "Modern Residence — Exterior",
+    category: "Architectural Visualization",
+    year: "2024",
+    image: "/images/house-exterior.jpg",
+    description: "Daytime exterior visualization of a contemporary two-storey home featuring full-height glazing, clean volumes, and tropical landscaping.",
+    tags: ["D5 Render", "3ds Max"],
+    featured: false,
+  },
+  {
+    id: 8,
+    title: "Immanuel Office Interior",
+    category: "Interior Design",
+    year: "2024",
+    image: "/images/immanuel-interior.jpg",
+    description: "Professional office interior with warm wood flooring, exposed brick accent wall, recessed ceiling lighting, and ergonomic workstation layout.",
+    tags: ["D5 Render", "3ds Max", "Photoshop"],
+    featured: false,
   },
 ];
 
@@ -82,9 +102,7 @@ const categories = ["All", ...new Set(projects.map(p => p.category))];
       {projects.map((project) => (
         <article class="project-card" data-category={project.category}>
           <div class="project-image">
-            <div class="img-placeholder">
-              <span>{project.title}</span>
-            </div>
+            <img src={project.image} alt={project.title} loading="lazy" />
             <div class="project-overlay">
               <div class="overlay-tags">
                 {project.tags.map(tag => <span class="tag">{tag}</span>)}
@@ -162,22 +180,15 @@ const categories = ["All", ...new Set(projects.map(p => p.category))];
     aspect-ratio: 16/9;
   }
 
-  .img-placeholder {
+  .project-image img {
     width: 100%;
     height: 100%;
-    background: var(--light-gray);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 16px;
-    color: var(--mid-gray);
-    font-size: 12px;
-    letter-spacing: 0.05em;
+    object-fit: cover;
     transition: transform 0.5s ease;
+    display: block;
   }
 
-  .project-card:hover .img-placeholder { transform: scale(1.03); }
+  .project-card:hover .project-image img { transform: scale(1.03); }
 
   .project-overlay {
     position: absolute;
